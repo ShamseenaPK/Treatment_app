@@ -33,8 +33,7 @@ class _BodyState extends State<Body> {
         Uri.parse(url),
         headers: {
           'Authorization':
-              'Bearer $token', // Assuming your token is a Bearer token
-          // Add other headers if needed
+              'Bearer $token',
         },
       );
 
