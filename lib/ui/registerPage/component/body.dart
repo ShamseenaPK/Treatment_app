@@ -329,322 +329,7 @@ class _BodyState extends State<Body> {
             ),
             ElevatedButton(
               onPressed: () {
-                showModalBottomSheet(isScrollControlled: true,
-                  context: context,
-                  builder: (context) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.70,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15, top: 15, right: 15),
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  const Text('Choose Treatment',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color: textColor,
-                                        fontFamily: 'Poppins',
-                                      )),
-                                  const SizedBox(
-                                    height: 12,
-                                  ),
-                                  SizedBox(
-                                    width: 400,
-                                    height: 79.98,
-                                    child: DropdownButtonFormField<String>(
-                                      decoration: InputDecoration(
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(3.5),
-                                          borderSide: BorderSide(
-                                            color: const Color(0xFF000000)
-                                                .withOpacity(0.1),
-                                            width: 1,
-                                          ),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(3.5),
-                                          borderSide: BorderSide(
-                                            color: const Color(0xFF000000)
-                                                .withOpacity(0.1),
-                                            width: 1,
-                                          ),
-                                        ),
-                                        contentPadding:
-                                            const EdgeInsets.all(10),
-                                      ),
-                                      hint: const Text(
-                                          "Choose preferred treatment"),
-                                      isExpanded: true,
-                                      icon:
-                                          const Icon(Icons.keyboard_arrow_down),
-                                      items: [''].map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                          return DropdownMenuItem<String>(
-                                            value: value,
-                                            child: Text(value),
-                                          );
-                                        },
-                                      ).toList(),
-                                      onChanged: (newValue) {},
-                                    ),
-                                  ),
-                                ]),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15, right: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text('Add Patients',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: textColor,
-                                      fontFamily: 'Poppins',
-                                    )),
-                                const SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 79.98,
-                                      width: 110,
-                                      child: TextFormField(
-                                        controller: treatmentDateController,
-                                        decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            hintText: 'Male',
-                                            contentPadding:
-                                                const EdgeInsets.all(12)),
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 50),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 30),
-                                      child: Stack(children: const [
-                                        CircleAvatar(
-                                          backgroundColor: iconColor,
-                                          maxRadius: 20,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 10),
-                                            child: Icon(
-                                              Icons.minimize_sharp,
-                                              color: Colors.white,
-                                              size: 20,
-                                            ),
-                                          ),
-                                        ),
-                                      ]),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    SizedBox(
-                                      height: 79.98,
-                                      width: 55,
-                                      child: TextFormField(
-                                        controller: treatmentDateController,
-                                        decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            contentPadding:
-                                                const EdgeInsets.all(12)),
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 30),
-                                      child: Stack(children: const [
-                                        CircleAvatar(
-                                          backgroundColor: iconColor,
-                                          maxRadius: 20,
-                                          child: Icon(
-                                            Icons.add,
-                                            color: Colors.white,
-                                            size: 20,
-                                          ),
-                                        ),
-                                      ]),
-                                    ),
-                                    const SizedBox(width: 10),
-                                  ],
-                                ),
-                                const SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 79.98,
-                                      width: 110,
-                                      child: TextFormField(
-                                        controller: treatmentDateController,
-                                        decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            hintText: 'female',
-                                            contentPadding:
-                                                const EdgeInsets.all(12)),
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 50),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 30),
-                                      child: Stack(children: const [
-                                        CircleAvatar(
-                                          backgroundColor: iconColor,
-                                          maxRadius: 20,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 10),
-                                            child: Icon(
-                                              Icons.minimize_sharp,
-                                              color: Colors.white,
-                                              size: 20,
-                                            ),
-                                          ),
-                                        ),
-                                      ]),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    SizedBox(
-                                      height: 79.98,
-                                      width: 55,
-                                      child: TextFormField(
-                                        controller: treatmentDateController,
-                                        decoration: InputDecoration(
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.5),
-                                              borderSide: BorderSide(
-                                                color: const Color(0xFF000000)
-                                                    .withOpacity(0.1),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            contentPadding:
-                                                const EdgeInsets.all(12)),
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 30),
-                                      child: Stack(children: const [
-                                        CircleAvatar(
-                                          backgroundColor: iconColor,
-                                          maxRadius: 20,
-                                          child: Icon(
-                                            Icons.add,
-                                            color: Colors.white,
-                                            size: 20,
-                                          ),
-                                        ),
-                                      ]),
-                                    ),
-                                    const SizedBox(width: 10),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/register');
-                            },
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(330, 50),
-                              primary: const Color(0xFF006837),
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                            ),
-                            child: const Text(
-                              'Save',
-                              style: TextStyle(fontSize: 18),
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                        ],
-                      ),
-                    );
-                  },
-                );
+                _buildModelSheeet();
               },
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size(330, 50),
@@ -868,6 +553,325 @@ class _BodyState extends State<Body> {
         const SizedBox(height: 50),
       ],
     );
+  }
+
+  Future<dynamic> _buildModelSheeet() {
+    return showModalBottomSheet(isScrollControlled: true,
+                context: context,
+                builder: (context) {
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.70,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, top: 15, right: 15),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                const Text('Choose Treatment',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: textColor,
+                                      fontFamily: 'Poppins',
+                                    )),
+                                const SizedBox(
+                                  height: 12,
+                                ),
+                                SizedBox(
+                                  width: 400,
+                                  height: 79.98,
+                                  child: DropdownButtonFormField<String>(
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(3.5),
+                                        borderSide: BorderSide(
+                                          color: const Color(0xFF000000)
+                                              .withOpacity(0.1),
+                                          width: 1,
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(3.5),
+                                        borderSide: BorderSide(
+                                          color: const Color(0xFF000000)
+                                              .withOpacity(0.1),
+                                          width: 1,
+                                        ),
+                                      ),
+                                      contentPadding:
+                                          const EdgeInsets.all(10),
+                                    ),
+                                    hint: const Text(
+                                        "Choose preferred treatment"),
+                                    isExpanded: true,
+                                    icon:
+                                        const Icon(Icons.keyboard_arrow_down),
+                                    items: [''].map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      },
+                                    ).toList(),
+                                    onChanged: (newValue) {},
+                                  ),
+                                ),
+                              ]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text('Add Patients',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                    color: textColor,
+                                    fontFamily: 'Poppins',
+                                  )),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    height: 79.98,
+                                    width: 110,
+                                    child: TextFormField(
+                                      controller: treatmentDateController,
+                                      decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          hintText: 'Male',
+                                          contentPadding:
+                                              const EdgeInsets.all(12)),
+                                      keyboardType:
+                                          TextInputType.emailAddress,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 50),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 30),
+                                    child: Stack(children: const [
+                                      CircleAvatar(
+                                        backgroundColor: iconColor,
+                                        maxRadius: 20,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.only(bottom: 10),
+                                          child: Icon(
+                                            Icons.minimize_sharp,
+                                            color: Colors.white,
+                                            size: 20,
+                                          ),
+                                        ),
+                                      ),
+                                    ]),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  SizedBox(
+                                    height: 79.98,
+                                    width: 55,
+                                    child: TextFormField(
+                                      controller: treatmentDateController,
+                                      decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          contentPadding:
+                                              const EdgeInsets.all(12)),
+                                      keyboardType:
+                                          TextInputType.emailAddress,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 30),
+                                    child: Stack(children: const [
+                                      CircleAvatar(
+                                        backgroundColor: iconColor,
+                                        maxRadius: 20,
+                                        child: Icon(
+                                          Icons.add,
+                                          color: Colors.white,
+                                          size: 20,
+                                        ),
+                                      ),
+                                    ]),
+                                  ),
+                                  const SizedBox(width: 10),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    height: 79.98,
+                                    width: 110,
+                                    child: TextFormField(
+                                      controller: treatmentDateController,
+                                      decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          hintText: 'female',
+                                          contentPadding:
+                                              const EdgeInsets.all(12)),
+                                      keyboardType:
+                                          TextInputType.emailAddress,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 50),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 30),
+                                    child: Stack(children: const [
+                                      CircleAvatar(
+                                        backgroundColor: iconColor,
+                                        maxRadius: 20,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.only(bottom: 10),
+                                          child: Icon(
+                                            Icons.minimize_sharp,
+                                            color: Colors.white,
+                                            size: 20,
+                                          ),
+                                        ),
+                                      ),
+                                    ]),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  SizedBox(
+                                    height: 79.98,
+                                    width: 55,
+                                    child: TextFormField(
+                                      controller: treatmentDateController,
+                                      decoration: InputDecoration(
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(3.5),
+                                            borderSide: BorderSide(
+                                              color: const Color(0xFF000000)
+                                                  .withOpacity(0.1),
+                                              width: 1,
+                                            ),
+                                          ),
+                                          contentPadding:
+                                              const EdgeInsets.all(12)),
+                                      keyboardType:
+                                          TextInputType.emailAddress,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 30),
+                                    child: Stack(children: const [
+                                      CircleAvatar(
+                                        backgroundColor: iconColor,
+                                        maxRadius: 20,
+                                        child: Icon(
+                                          Icons.add,
+                                          color: Colors.white,
+                                          size: 20,
+                                        ),
+                                      ),
+                                    ]),
+                                  ),
+                                  const SizedBox(width: 10),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(330, 50),
+                            primary: const Color(0xFF006837),
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                          ),
+                          child: const Text(
+                            'Save',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+                      ],
+                    ),
+                  );
+                },
+              );
   }
 
   Column _buildTextField(
