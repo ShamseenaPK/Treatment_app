@@ -5,6 +5,7 @@ import 'package:treatmentapp/api/api_service.dart';
 import 'package:treatmentapp/models/patientModel/patient_model.dart';
 import 'package:http/http.dart' as http;
 import '../../../constants/colors.dart';
+import '../../../constants/progress_indicator.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -17,11 +18,13 @@ class _BodyState extends State<Body> {
   String selectedValue = 'Date';
 
   late APIService apiService;
+  bool isApiCallProcess = false;
 
   late PatientModel _patient = PatientModel(patient: []);
 
   void getPatient() async {
     try {
+      bool isApiCallProcess = true;
       String url = "https://flutter-amr.noviindus.in/api/PatientList";
       String token =
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk0MTE0NjQxLCJpYXQiOjE3MDc3MTQ2NDEsImp0aSI6ImNkYmI0MmQ1Y2NjMjQ3MjJiZTFiNzliYzZiMzNmYjMwIiwidXNlcl9pZCI6MjF9.eaWyfBeznzEI0MsLJY07vM2d0C6zCi7CATi_cIGIDGU";
@@ -36,6 +39,7 @@ class _BodyState extends State<Body> {
       );
 
       if (response.statusCode == 200) {
+        bool isApiCallProcess = false;
         var json = jsonDecode(response.body);
         setState(() {
           _patient = PatientModel.fromJson(json);
@@ -47,7 +51,6 @@ class _BodyState extends State<Body> {
       throw Exception('$error');
     }
   }
-  
 
   @override
   void initState() {
@@ -56,8 +59,16 @@ class _BodyState extends State<Body> {
     getPatient();
   }
 
-  @override
+   @override
   Widget build(BuildContext context) {
+    return ProgressWidget(
+      inAsyncCall: isApiCallProcess,
+      child: _uiSetup(context),
+    );
+  }
+
+  @override
+  Widget _uiSetup(BuildContext context) {
     print('=============aaaaaaaaaaaaa======${_patient.patient!.length}');
     return SafeArea(
       child: Padding(
@@ -201,7 +212,7 @@ class _BodyState extends State<Body> {
               const SizedBox(
                 height: 10,
               ),
-              _uiSetup(),
+              _listViewSetup(),
             ],
           ),
         ),
@@ -209,7 +220,7 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Widget _uiSetup() {
+  Widget _listViewSetup() {
     return ListView.builder(
       itemCount: _patient.patient!.length,
       itemBuilder: (context, index) {
@@ -225,7 +236,7 @@ class _BodyState extends State<Body> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 10),
-                  child:  Text(
+                  child: Text(
                     '${index + 1}. ${data.name}',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
@@ -245,10 +256,13 @@ class _BodyState extends State<Body> {
                   child: Row(
                     children: [
                       Icon(Icons.calendar_month, color: Colors.red),
-                      Text('${data.dateNdTime != null ? DateFormat("dd-MM-yyyy").format(DateTime.parse('${data.dateNdTime!.toIso8601String()}')): DateTime.now()}',
+                      Text(
+                          '${data.dateNdTime != null ? DateFormat("dd-MM-yyyy").format(DateTime.parse('${data.dateNdTime!.toIso8601String()}')) : DateTime.now()}',
                           style: TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w300)),
-                              SizedBox(width: 100,),
+                      SizedBox(
+                        width: 100,
+                      ),
                       Icon(
                         Icons.person,
                         color: Colors.red,
@@ -280,7 +294,9 @@ class _BodyState extends State<Body> {
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w300),
                       ),
-                       SizedBox(width: 120,),
+                      SizedBox(
+                        width: 120,
+                      ),
                       Icon(
                         Icons.arrow_forward_ios,
                         color: iconColor,

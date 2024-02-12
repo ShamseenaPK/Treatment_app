@@ -211,7 +211,6 @@ class LoginScreenState extends State<Body> {
                             .showSnackBar(snackBar); 
 
                             SharedService.setLoginDetails(value);Navigator.pushReplacementNamed(context, '/dashboard');
-                            print('============token==    ${value.token}         =========');
                             
                       } else {
                         final snackBar =
