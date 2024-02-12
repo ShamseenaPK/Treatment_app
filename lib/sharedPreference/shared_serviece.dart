@@ -6,7 +6,7 @@ import 'package:treatmentapp/models/loginModel/login_model.dart';
 class SharedService {
   static Future<bool> isLoggedIn() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getString("login_details") != null;
+    return prefs.getString("login_details") != null ? true : false;
   }
 
   static Future<void> setLoginDetails(LoginResponseModel? model) async {

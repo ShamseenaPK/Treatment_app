@@ -126,7 +126,7 @@ class LoginScreenState extends State<Body> {
                                 color:
                                     const Color(0xFF000000).withOpacity(0.1))),
                         hintText: 'Enter Username',
-                        prefixIcon: const Icon(Icons.email),
+                        prefixIcon: const Icon(Icons.person),
                         contentPadding:
                             const EdgeInsets.symmetric(vertical: 10),
                       ),
