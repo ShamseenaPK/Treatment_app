@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:treatmentapp/sharedPreference/shared_serviece.dart';
 import 'package:treatmentapp/ui/dashboad/dashboard_page.dart';
 import 'package:treatmentapp/ui/loginPage/login_page.dart';
+import 'package:treatmentapp/ui/registerPage/register_page.dart';
 import 'package:treatmentapp/ui/splashScreen/splash.dart';
 
 Widget _defaultHome = LoginPage();
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           '/dashboard': (BuildContext context) => const DashboardPage(), 
           '/login': (BuildContext context) =>  LoginPage(), 
+          '/register': (BuildContext context) =>  const RegisterPage(),
         },
         );
   }

@@ -68,7 +68,6 @@ class _BodyState extends State<Body> {
 
   @override
   Widget _uiSetup(BuildContext context) {
-    print('=============aaaaaaaaaaaaa======${_patient.patient!.length}');
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(left: 15, top: 10, right: 15),
@@ -225,7 +224,9 @@ class _BodyState extends State<Body> {
             Padding(
               padding: const EdgeInsets.only(top: 500),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
+                },
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(330, 50),
                   primary: const Color(0xFF006837),
@@ -249,7 +250,7 @@ class _BodyState extends State<Body> {
       itemBuilder: (context, index) {
         final data = _patient.patient![index];
         return Card(
-            margin: EdgeInsets.all(5),
+            margin: const EdgeInsets.all(5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -261,11 +262,11 @@ class _BodyState extends State<Body> {
                   padding: const EdgeInsets.only(top: 10, left: 10),
                   child: Text(
                     '${index + 1}. ${data.name}',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10, left: 10),
                   child: Text(
                     'Couple Combo Package',
                     style: TextStyle(
@@ -278,20 +279,20 @@ class _BodyState extends State<Body> {
                   padding: const EdgeInsets.only(top: 10, left: 10),
                   child: Row(
                     children: [
-                      Icon(Icons.calendar_month, color: Colors.red),
+                      const Icon(Icons.calendar_month, color: Colors.red),
                       Text(
                           '${data.dateNdTime != null ? DateFormat("dd-MM-yyyy").format(DateTime.parse('${data.dateNdTime!.toIso8601String()}')) : DateTime.now()}',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w300)),
-                      SizedBox(
+                      const SizedBox(
                         width: 100,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.person,
                         color: Colors.red,
                       ),
                       Text('${data.user}',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w300))
                     ],
                   ),
@@ -303,7 +304,7 @@ class _BodyState extends State<Body> {
                   child: SizedBox(
                     height: 2,
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 189, 186, 186)),
                     ),
                   ),
@@ -312,7 +313,7 @@ class _BodyState extends State<Body> {
                   padding: const EdgeInsets.only(top: 10, left: 10, bottom: 10),
                   child: Row(
                     children: [
-                      Text(
+                       Text(
                         'View Booking Details',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w300),
@@ -332,7 +333,7 @@ class _BodyState extends State<Body> {
             ));
       },
       shrinkWrap: true,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
     );
   }
 }
