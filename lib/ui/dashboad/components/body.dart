@@ -59,7 +59,7 @@ class _BodyState extends State<Body> {
     getPatient();
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return ProgressWidget(
       inAsyncCall: isApiCallProcess,
@@ -73,148 +73,172 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(left: 15, top: 10, right: 15),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
-                        )),
-                  ),
-                  const Expanded(flex: 8, child: SizedBox()),
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.notifications_active,
-                          color: Colors.black,
-                        )),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    height: 40,
-                    width: 235,
-                    child: TextFormField(
-                      // controller: _passwordController,
-
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color:
-                                    const Color(0xFF000000).withOpacity(0.1))),
-                        hintText: 'Search for treatments',
-                        prefixIcon: const Icon(Icons.search),
-                        contentPadding:
-                            const EdgeInsets.symmetric(vertical: 10),
-                        alignLabelWithHint: false,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.black,
+                            )),
                       ),
-                      textInputAction: TextInputAction.done,
-                    ),
+                      const Expanded(flex: 8, child: SizedBox()),
+                      Expanded(
+                        flex: 1,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.notifications_active,
+                              color: Colors.black,
+                            )),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 40,
+                        width: 235,
+                        child: TextFormField(
+                          // controller: _passwordController,
+
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                    color: const Color(0xFF000000)
+                                        .withOpacity(0.1))),
+                            hintText: 'Search for treatments',
+                            prefixIcon: const Icon(Icons.search),
+                            contentPadding:
+                                const EdgeInsets.symmetric(vertical: 10),
+                            alignLabelWithHint: false,
+                          ),
+                          textInputAction: TextInputAction.done,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 40,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(330, 50),
+                            primary: const Color(0xFF006837),
+                            padding: const EdgeInsets.symmetric(vertical: 9),
+                          ),
+                          child: const Text(
+                            'Search',
+                            style: TextStyle(
+                                fontSize: 13, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                   const SizedBox(
-                    width: 10,
+                    height: 10,
                   ),
-                  Container(
-                    height: 40,
-                    width: 80,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(330, 50),
-                        primary: const Color(0xFF006837),
-                        padding: const EdgeInsets.symmetric(vertical: 9),
-                      ),
-                      child: const Text(
-                        'Search',
-                        style: TextStyle(
-                            fontSize: 13, fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Expanded(
-                      flex: 5,
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Sort by :'),
-                      )),
-                  const Expanded(flex: 2, child: SizedBox()),
-                  Expanded(
-                    flex: 8,
-                    child: SizedBox(
-                      width: 400,
-                      height: 40,
-                      child: DropdownButtonFormField<String>(
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: const Color(0xFF000000).withOpacity(0.1),
-                              width: 1,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Expanded(
+                          flex: 5,
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text('Sort by :'),
+                          )),
+                      const Expanded(flex: 2, child: SizedBox()),
+                      Expanded(
+                        flex: 8,
+                        child: SizedBox(
+                          width: 400,
+                          height: 40,
+                          child: DropdownButtonFormField<String>(
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color:
+                                      const Color(0xFF000000).withOpacity(0.1),
+                                  width: 1,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color:
+                                      const Color(0xFF000000).withOpacity(0.1),
+                                  width: 1,
+                                ),
+                              ),
+                              contentPadding: const EdgeInsets.all(10),
                             ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: const Color(0xFF000000).withOpacity(0.1),
-                              width: 1,
+                            // hint: const Text("Choose an item"),
+                            value: selectedValue,
+                            isExpanded: true,
+                            icon: const Icon(
+                              Icons.keyboard_arrow_down,
+                              color: iconColor,
                             ),
+                            items: ['Date', 'Month', 'Year']
+                                .map<DropdownMenuItem<String>>(
+                              (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              },
+                            ).toList(),
+                            onChanged: (newValue) {
+                              selectedValue = newValue!;
+                            },
                           ),
-                          contentPadding: const EdgeInsets.all(10),
                         ),
-                        // hint: const Text("Choose an item"),
-                        value: selectedValue,
-                        isExpanded: true,
-                        icon: const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: iconColor,
-                        ),
-                        items: ['Date', 'Month', 'Year']
-                            .map<DropdownMenuItem<String>>(
-                          (String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          },
-                        ).toList(),
-                        onChanged: (newValue) {
-                          selectedValue = newValue!;
-                        },
                       ),
-                    ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  _listViewSetup(),
+                  const SizedBox(
+                    height: 10,
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 500),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(330, 50),
+                  primary: const Color(0xFF006837),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                ),
+                child: const Text(
+                  'Register Now',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
-              _listViewSetup(),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
