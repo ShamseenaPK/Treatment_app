@@ -333,7 +333,7 @@ class _BodyState extends State<Body> {
               },
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size(330, 50),
-                primary: Color.fromARGB(255, 195, 216, 206),
+                backgroundColor: Color.fromARGB(255, 195, 216, 206),
                 padding: const EdgeInsets.symmetric(vertical: 12),
               ),
               child: const Text(
@@ -542,7 +542,7 @@ class _BodyState extends State<Body> {
           },
           style: ElevatedButton.styleFrom(
             fixedSize: const Size(330, 50),
-            primary: const Color(0xFF006837),
+            backgroundColor: const Color(0xFF006837),
             padding: const EdgeInsets.symmetric(vertical: 12),
           ),
           child: const Text(
@@ -858,7 +858,7 @@ class _BodyState extends State<Body> {
                           },
                           style: ElevatedButton.styleFrom(
                             fixedSize: const Size(330, 50),
-                            primary: const Color(0xFF006837),
+                            backgroundColor: const Color(0xFF006837),
                             padding: const EdgeInsets.symmetric(vertical: 12),
                           ),
                           child: const Text(

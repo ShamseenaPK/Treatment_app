@@ -136,7 +136,7 @@ class _BodyState extends State<Body> {
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             fixedSize: const Size(330, 50),
-                            primary: const Color(0xFF006837),
+                            backgroundColor: const Color(0xFF006837),
                             padding: const EdgeInsets.symmetric(vertical: 9),
                           ),
                           child: const Text(
@@ -229,7 +229,7 @@ class _BodyState extends State<Body> {
                 },
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(330, 50),
-                  primary: const Color(0xFF006837),
+                  backgroundColor: const Color(0xFF006837),
                   padding: const EdgeInsets.symmetric(vertical: 12),
                 ),
                 child: const Text(
